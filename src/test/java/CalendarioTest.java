@@ -1,11 +1,11 @@
 
-import com.github.natalialopessilva.cs20162.aula07.DiaDaSemana;
-import static com.github.natalialopessilva.cs20162.aula07.DiaDaSemana.diaSemana;
-import static com.github.natalialopessilva.cs20162.aula07.DiaDaSemana.diaSemanaComLocalDate;
+import com.github.natalialopessilva.cs20162.aula07.Calendario;
+import static com.github.natalialopessilva.cs20162.aula07.Calendario.diaSemana;
+import static com.github.natalialopessilva.cs20162.aula07.Calendario.diaSemanaComLocalDate;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class DiaDaSemanaTest {
+public class CalendarioTest {
 
     /**
      * Implementação dos Testes referentes a classe DiaSemana
@@ -131,7 +131,7 @@ public class DiaDaSemanaTest {
     
     @Test
     public void cemPorCentoCobertura() {
-        new DiaDaSemana();
+        new Calendario();
     }
 
     //Cem por cento de cobertura na primeira condicional (primeiro while inclusive)

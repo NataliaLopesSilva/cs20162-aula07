@@ -9,20 +9,23 @@
 
          mvn package -P cobertura
          Compila, executa testes e elabora relatório de cobertura.
+
+         mvn exec:java -Dexec.mainClass="com.github.natalialopessilva.cs2016.aula07"
+         Executa o programa DiaSemana
     -->
 
     <groupId>com.github.NataliaLopesSilva</groupId>
-    <artifactId>exemplo</artifactId>
+    <artifactId>cs20162-aula07</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0</version>
 
-    <name>com.github.natalialopessilva:aula07</name>
+    <name>com.github.NataliaLopesSilva</name>
 
     <description>
         Projeto de referência (exemplo) inicial de desenvolvimento em Java com uso de JUnit.
     </description>
 
-    <url>https://github.com/NataliaLopesSilva/exemplo</url>
+    <url>https://github.com/NataliaLopesSilva/cs20162/aula07</url>
 
     <organization>
         <name>Instituto de Informática (UFG) - Fábrica de Software</name>
@@ -43,7 +46,7 @@
 
     <developers>
         <developer>
-            <id>NataliaLopesSilva</id>
+            <id>NataliLopesSilva</id>
             <name>Natália Lopes da Silva</name>
             <email>natalialopescig@gmail.com</email>
             <organization>Instituto de Informática (UFG)</organization>
@@ -52,9 +55,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/NataliaLopesSilva/exemplo.git</connection>
-        <developerConnection>scm:git:https://github.com/NataliaLopesSilva/exemplo.git</developerConnection>
-        <url>https://github.com/kyriosdata/exemplo</url>
+        <connection>scm:git:https://github.com/NataliaLopesSilva/cs20162-aula07.git</connection>
+        <developerConnection>scm:git:https://github.com/NataliaLopesSilva/cs20162-aula07.git</developerConnection>
+        <url>https://github.com/NataliaLopesSilva/cs20162-aula07</url>
     </scm>
 
     <properties>
@@ -101,6 +104,21 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
                 <version>2.19.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.6</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.17</version>
             </plugin>
         </plugins>
     </reporting>
