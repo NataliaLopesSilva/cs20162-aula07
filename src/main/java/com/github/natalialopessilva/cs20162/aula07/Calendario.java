@@ -33,6 +33,13 @@ public final class Calendario {
     }
 
     /**
+    * Acessa o construtor protegido
+    */
+    public static void setCalendario() {
+        Calendario meuConstrutor = new Calendario();
+    }
+
+    /**
      * Número que indica quando algo na entrada não deu certo.
      */
     public static final int SAIDA_INVALIDA = -1;

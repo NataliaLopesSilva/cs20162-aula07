@@ -1,7 +1,7 @@
 
-import com.github.natalialopessilva.cs20162.aula07.Calendario;
 import static com.github.natalialopessilva.cs20162.aula07.Calendario.diaSemana;
 import static com.github.natalialopessilva.cs20162.aula07.Calendario.diaSemanaComLocalDate;
+import static com.github.natalialopessilva.cs20162.aula07.Calendario.setCalendario;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -114,7 +114,7 @@ public class CalendarioTest {
     public void saidaEsperadaCorretaDatasDiferentes() {
         Assert.assertEquals(3, diaSemana(20160928, 2016, 20160901, 4));
     }
-    
+
     @Test
     public void saidaEsperadaCorretaDatasDiferentes2() {
         Assert.assertEquals(4, diaSemana(20160901, 2016, 20160928, 3));
@@ -125,13 +125,12 @@ public class CalendarioTest {
         Assert.assertEquals(diaSemana(20160929, 2000, 20160928, 2), diaSemanaComLocalDate(20160929, 2000, 20160928, 2));
     }
 
-    /** 
+    /**
      * Testes para obter 100% de cobertura
      */
-    
     @Test
     public void cemPorCentoCobertura() {
-        new Calendario();
+        setCalendario();
     }
 
     //Cem por cento de cobertura na primeira condicional (primeiro while inclusive)
@@ -149,9 +148,9 @@ public class CalendarioTest {
     public void cemPorCentoCoberturaDiaSemana3() {
         Assert.assertEquals(3, diaSemana(20160928, 2016, 20150101, 4));
     }
-    
+
     //Cem por cento de cobertura na segunda condicional (segundo while inclusive)
-    @Test 
+    @Test
     public void cemPorCentoCoberturaDiaSemana4() {
         Assert.assertEquals(4, diaSemana(20150101, 2016, 20160928, 3));
     }
@@ -171,9 +170,9 @@ public class CalendarioTest {
         Assert.assertEquals(2, diaSemana(20160927, 2016, 20160928, 3));
     }
 
-    @Test//Caso em que o ano conhecido é igual ao ano desejado mas o mes é maior
+    @Test//Caso em que o ano conhecido é menor que ano desejado mas o mes é maior
     public void cemPorCentoCoberturaDiaSemana8() {
-        Assert.assertEquals(6, diaSemana(20160702, 2016, 20160928, 3));
+        Assert.assertEquals(6, diaSemana(20160702, 2016, 20150928, 1));
     }
 
     @Test//Caso em que os anos são iguais, os meses são iguais mas o dia conhecido é maior que o desejado
