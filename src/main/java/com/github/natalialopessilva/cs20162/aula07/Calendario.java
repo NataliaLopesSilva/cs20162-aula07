@@ -33,8 +33,8 @@ public final class Calendario {
     }
 
     /**
-    * Acessa o construtor protegido
-    */
+     * Acessa o construtor protegido.
+     */
     public static void setCalendario() {
         Calendario meuConstrutor = new Calendario();
     }
