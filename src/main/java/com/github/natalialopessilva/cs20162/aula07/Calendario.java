@@ -29,19 +29,6 @@ import java.time.LocalDate;
 public final class Calendario {
 
     /**
-     * Construtor da Classe Calendário.
-     */
-    private Calendario() {
-    }
-
-    /**
-     * Acessa o construtor protegido.
-     */
-    public static void setCalendario() {
-        Calendario meuConstrutor = new Calendario();
-    }
-
-    /**
      * Número que indica quando algo na entrada não deu certo.
      */
     public static final int SAIDA_INVALIDA = -1;
@@ -189,6 +176,13 @@ public final class Calendario {
      * usuário devem assumir.
      */
     public static final int LIMITE_CARACTERES_DATA = 8;
+
+    /**
+     * Construtor da classe Calendario que impede que a mesma seja instanciada
+     * ou acessada.
+     */
+    private Calendario() {
+    }
 
     /**
      * Verifica uma data fornecida pelo cliente e retorna o dia da Semana
@@ -365,38 +359,40 @@ public final class Calendario {
 
         String data = Integer.toString(dataRecebida);
 
+        int dia = 0;
+        int mes = 0;
+        int ano = 0;
+
         if (data.length() == LIMITE_CARACTERES_DATA) {
-
-            int dia = Integer.parseInt(data.substring(LIMITE_DIA));
-            int mes = Integer.parseInt(data.substring(LIMITE_MES, LIMITE_DIA));
-            int ano = Integer.parseInt(data.substring(LIMITE_ANO, LIMITE_MES));
-
-            //Verificação de dia/meses p/ cálculo de verificação do ano bissexto
-            if (mes > MES_DEZEMBRO || mes < 1) {
-                return false;
-            } else if ((mes == MES_JANEIRO || mes == MES_MARCO
-                    || mes == MES_MAIO || mes == MES_JULHO || mes == MES_AGOSTO
-                    || mes == MES_OUTUBRO || mes == MES_DEZEMBRO)
-                    && (dia < 1 || dia > NUM_DIAS_MES_31)) {
-                return false;
-            } else if ((mes == MES_ABRIL || mes == MES_JUNHO
-                    || mes == MES_SETEMBRO || mes == MES_NOVEMBRO)
-                    && (dia < 1 || dia > NUM_DIAS_MES_30)) {
-                return false;
-            } else if (mes == MES_FEVEREIRO) {
-                if (verificaAnoBissexto(ano, anoBissextoReferencia)) {
-                    if (dia < 1 || dia > NUM_DIAS_MES_29) {
-                        return false;
-                    }
-                } else if (dia < 1 || dia > NUM_DIAS_MES_28) {
-                    return false;
-                }
-            }
-
-            return true;
+            dia = Integer.parseInt(data.substring(LIMITE_DIA));
+            mes = Integer.parseInt(data.substring(LIMITE_MES, LIMITE_DIA));
+            ano = Integer.parseInt(data.substring(LIMITE_ANO, LIMITE_MES));
         } else {
             return false;
         }
+        //Verificação de dia/meses p/ cálculo de verificação do ano bissexto
+        if (mes > MES_DEZEMBRO || mes < 1) {
+            return false;
+        } else if ((mes == MES_JANEIRO || mes == MES_MARCO
+                || mes == MES_MAIO || mes == MES_JULHO || mes == MES_AGOSTO
+                || mes == MES_OUTUBRO || mes == MES_DEZEMBRO)
+                && (dia < 1 || dia > NUM_DIAS_MES_31)) {
+            return false;
+        } else if ((mes == MES_ABRIL || mes == MES_JUNHO
+                || mes == MES_SETEMBRO || mes == MES_NOVEMBRO)
+                && (dia < 1 || dia > NUM_DIAS_MES_30)) {
+            return false;
+        } else if (mes == MES_FEVEREIRO) {
+            if (verificaAnoBissexto(ano, anoBissextoReferencia)) {
+                if (dia < 1 || dia > NUM_DIAS_MES_29) {
+                    return false;
+                }
+            } else if (dia < 1 || dia > NUM_DIAS_MES_28) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**

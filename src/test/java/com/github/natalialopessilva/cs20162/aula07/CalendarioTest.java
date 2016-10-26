@@ -1,7 +1,7 @@
+package com.github.natalialopessilva.cs20162.aula07;
 
 import static com.github.natalialopessilva.cs20162.aula07.Calendario.diaSemana;
 import static com.github.natalialopessilva.cs20162.aula07.Calendario.diaSemanaComLocalDate;
-import static com.github.natalialopessilva.cs20162.aula07.Calendario.setCalendario;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -123,14 +123,6 @@ public class CalendarioTest {
     @Test// Teste de saídas entre algoritmo manuel e utilicação da classe LocalDate
     public void saidaEsperadaCorretaLocalDate() {
         Assert.assertEquals(diaSemana(20160929, 2000, 20160928, 2), diaSemanaComLocalDate(20160929, 2000, 20160928, 2));
-    }
-
-    /**
-     * Testes para obter 100% de cobertura
-     */
-    @Test
-    public void cemPorCentoCobertura() {
-        setCalendario();
     }
 
     //Cem por cento de cobertura na primeira condicional (primeiro while inclusive)
